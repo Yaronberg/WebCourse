@@ -45,7 +45,6 @@ namespace Pagesaver
                 var Path = "..\\..\\..\\" + request[2];
 
                 var message = $"GET {addr} HTTP/1.0\r\nHost: {serverAddr}\r\n\r\n";
-                Console.WriteLine("before:" + message);
 
                 try
                 {
