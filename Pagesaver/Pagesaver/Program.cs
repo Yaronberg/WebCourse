@@ -65,8 +65,17 @@ namespace Pagesaver
                     stream.Close();
                     client.Close();
 
-                    var indexString = responseMessage.IndexOf("<html>") == -1 ? responseMessage.IndexOf("\r\n") : responseMessage.IndexOf("<html>");
-                    responseMessage = responseMessage.Substring(indexString);
+                    if (responseMessage.IndexOf("<html>", StringComparison.OrdinalIgnoreCase) > -1)
+                    {
+                        int searchIndex = responseMessage.IndexOf("<html>", StringComparison.OrdinalIgnoreCase);
+                        responseMessage = responseMessage.Substring(searchIndex);
+                    }
+                    else if (responseMessage.IndexOf("<header>", StringComparison.OrdinalIgnoreCase) > -1)
+                    {
+                        int searchIndex = responseMessage.IndexOf("<header>", StringComparison.OrdinalIgnoreCase);
+                        responseMessage = responseMessage.Substring(searchIndex);
+                    }
+
 
                     using (StreamWriter sw = new StreamWriter(Path, false, System.Text.Encoding.Default))
                     {
