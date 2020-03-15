@@ -35,8 +35,7 @@ namespace serverSolvve
                     var response = System.Text.Encoding.ASCII.GetBytes(header + content);
                     stream.Write(response, 0, response.Length);
 
-                    Console.WriteLine("sent: {0}\n", header);
-
+                    Console.WriteLine("sent: \n{0}", header);
                 }
             }
 
