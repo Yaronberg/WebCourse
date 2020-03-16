@@ -75,7 +75,11 @@ namespace Pagesaver
                         int searchIndex = responseMessage.IndexOf("<header>", StringComparison.OrdinalIgnoreCase);
                         responseMessage = responseMessage.Substring(searchIndex);
                     }
-
+                    else if (responseMessage.IndexOf("\r\n\r\n", StringComparison.OrdinalIgnoreCase) > -1)
+                    {
+                        int searchIndex = responseMessage.IndexOf("\r\n\r\n", StringComparison.OrdinalIgnoreCase);
+                        responseMessage = responseMessage.Substring(searchIndex);
+                    }
 
                     using (StreamWriter sw = new StreamWriter(Path, false, System.Text.Encoding.Default))
                     {
