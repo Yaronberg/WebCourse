@@ -65,17 +65,7 @@ namespace Pagesaver
                     stream.Close();
                     client.Close();
 
-                    if (responseMessage.IndexOf("<html>", StringComparison.OrdinalIgnoreCase) > -1)
-                    {
-                        int searchIndex = responseMessage.IndexOf("<html>", StringComparison.OrdinalIgnoreCase);
-                        responseMessage = responseMessage.Substring(searchIndex);
-                    }
-                    else if (responseMessage.IndexOf("<header>", StringComparison.OrdinalIgnoreCase) > -1)
-                    {
-                        int searchIndex = responseMessage.IndexOf("<header>", StringComparison.OrdinalIgnoreCase);
-                        responseMessage = responseMessage.Substring(searchIndex);
-                    }
-                    else if (responseMessage.IndexOf("\r\n\r\n", StringComparison.OrdinalIgnoreCase) > -1)
+                    if (responseMessage.IndexOf("\r\n\r\n", StringComparison.OrdinalIgnoreCase) > -1)
                     {
                         int searchIndex = responseMessage.IndexOf("\r\n\r\n", StringComparison.OrdinalIgnoreCase);
                         responseMessage = responseMessage.Substring(searchIndex);
