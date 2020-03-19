@@ -24,9 +24,18 @@ namespace serverSolvve
 
                     NetworkStream stream = client.GetStream();
 
-                    string content = "<h1>Hi, everyone!</h1>";
+                    string content =
+                        "<!DOCTYPE html>\r\n" +
+                        "<html>\r\n" +
+                        "<head\r\n>" +
+                        "<title></title>\r\n" +
+                        "</head>\r\n" +
+                        "<body>\r\n" +
+                        "<h1>Hi, everyone!</h1>\r\n" +
+                        "</body>\r\n" +
+                        "</html >";
 
-                    string header =
+                     string header =
                         "HTTP/1.0 200 OK\r\n" +
                         "Server: SimpleServer\r\n" +
                         "Content-Type: text/html\r\n" +
