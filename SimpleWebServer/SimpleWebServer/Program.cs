@@ -15,7 +15,6 @@ namespace serverSolvve
                 var localAddr = IPAddress.Parse("127.0.0.1");
                 var server = new TcpListener(localAddr, port);
                 server.Start();
-                var bytes = new byte[8192];
 
                 while (true)
                 {
